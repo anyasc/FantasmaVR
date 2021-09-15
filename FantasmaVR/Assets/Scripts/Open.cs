@@ -17,7 +17,7 @@ public class Open : MonoBehaviour
     }
     private void Update()
     {
-        if (focus && Input.GetButtonDown("Grab"))
+        if (focus && Input.GetButtonDown("Z"))
         {
 
             if (!locked) // Se porta destrancada
@@ -39,15 +39,31 @@ public class Open : MonoBehaviour
 
                 }
             }
+            else
+            {
+                FindObjectOfType<AudioManager>().Play("PortaTrancada");
+            }
         }
     }
     public void OpenClose()
     {
         animator.SetTrigger("OpenClose");
+        if (!opened)
+        {
+            FindObjectOfType<AudioManager>().Play("PortaAbrindo");
+
+        }
         opened = !opened;
     }
 
-
+    public bool Unlock()
+    {
+        if (locked)
+        {
+            StartCoroutine(DelayUnlock());
+        }
+        return false;
+    }
 
 
 
@@ -59,5 +75,12 @@ public class Open : MonoBehaviour
     public void PointerExit() // Não permitir acoes com pointer fora do objeto
     {
         focus = false;
+    }
+
+
+    IEnumerator DelayUnlock()
+    {
+        yield return new WaitForSeconds(0.2f);
+        locked = false;
     }
 }

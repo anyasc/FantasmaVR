@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3e8a9329ead9dd644ac466e61fcd4bed
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - crowbar: {instanceID: 0}
+  - key: {instanceID: 0}
+  - brush: {fileID: 21300000, guid: 7dab58088b22cf946829e317742ab8f5, type: 3}
+  - photo: {instanceID: 0}
+  - lighter: {fileID: 21300000, guid: 95d66f0f86edcd04caaaa7d754bfe1b8, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

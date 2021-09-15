@@ -24,11 +24,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (holdingObject)
         {
-            if (Input.GetButtonDown("Rotate"))
+            if (Input.GetButtonDown("Z"))
             {
                 heldObj.transform.position = examine.position;
             }
-            if (Input.GetButtonUp("Rotate"))
+            if (Input.GetButtonUp("Z"))
             {
                 heldObj.transform.SetPositionAndRotation(hold.position, cam.rotation);
             }
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (holdingObject && Input.GetButton("Rotate")) // Se está segurando objeto e observando, rodar
+        if (holdingObject && Input.GetButton("Z")) // Se está segurando objeto e observando, rodar
         {
             Quaternion deltaRotation = Quaternion.Euler(input.y * rotateSpeed, -input.x * rotateSpeed, 0);
             heldObj.MoveRotation(heldObj.rotation * deltaRotation); // testar Transform.Rotate no Update()

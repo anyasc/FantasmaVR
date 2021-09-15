@@ -90,11 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6334073699008221237}
-  - component: {fileID: 1658809254848202950}
-  - component: {fileID: 2393230749922407788}
   - component: {fileID: 6021761777857785442}
-  - component: {fileID: 383509288529859368}
-  - component: {fileID: 7506693670562021277}
   - component: {fileID: 2310640426152972382}
   - component: {fileID: 437780398507700963}
   m_Layer: 0
@@ -120,32 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1658809254848202950
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7347981989231583525}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0005159962, y: 0.007865362, z: 0.015095897}
-  m_Center: {x: 0.0072445897, y: -0.000099435754, z: -0.00066495314}
---- !u!65 &2393230749922407788
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7347981989231583525}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0005992629, y: 0.007865362, z: 0.015095897}
-  m_Center: {x: -0.0075404607, y: -0.000099435754, z: -0.00066495314}
 --- !u!65 &6021761777857785442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -159,32 +129,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.015344946, y: 0.007865362, z: 0.000536152}
   m_Center: {x: -0.0001698859, y: -0.000099435754, z: 0.006614922}
---- !u!65 &383509288529859368
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7347981989231583525}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.015285856, y: 0.007865362, z: 0.00070166367}
-  m_Center: {x: -0.00014034288, y: -0.000099435754, z: -0.007862073}
---- !u!65 &7506693670562021277
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7347981989231583525}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.015186103, y: 0.00088240573, z: 0.015095897}
-  m_Center: {x: -0.00009047144, y: -0.003590904, z: -0.00066495314}
 --- !u!114 &2310640426152972382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: 0
   opened: 0
+  locked: 0
   animator: {fileID: 0}
+  impedingDoor: {fileID: 0}
 --- !u!114 &437780398507700963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +202,7 @@ GameObject:
   - component: {fileID: 5074333148938228280}
   - component: {fileID: 3726669413440446228}
   - component: {fileID: 3667119903381395943}
+  - component: {fileID: 1172019848020059475}
   m_Layer: 0
   m_Name: gaveta
   m_TagString: Untagged
@@ -326,3 +273,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1172019848020059475
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8702550933910274114}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6388424434258421614, guid: 5fd41b8c44448bb40a7f2288ea648572, type: 3}

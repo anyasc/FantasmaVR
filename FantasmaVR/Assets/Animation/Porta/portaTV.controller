@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: OpenCLose
+    m_ConditionEvent: OpenClose
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3604940447129844024}
@@ -61,7 +61,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: OpenCLose
+    m_ConditionEvent: OpenClose
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -484961505675416150}
@@ -86,7 +86,7 @@ AnimatorController:
   m_Name: portaTV
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: OpenCLose
+  - m_Name: OpenClose
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0

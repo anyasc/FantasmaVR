@@ -7,35 +7,37 @@ public class ObjectsInteractions : MonoBehaviour
     bool holding = false;
     public bool focus = false;
     Rigidbody rb;
-    public PlayerMovement playerMovement;
+    public Player player;
     public GameObject lightBulb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     void Update()
     {
-        if (holding && Input.GetButtonDown("Grab"))
+        if (!player.menuOpened)
         {
-            playerMovement.Release(transform, rb); // Metodo do script PlayerMovement
-            holding = false; // Objeto nao esta mais sento seguardo
-        }
-
-        if (focus && Input.GetButtonDown("Grab"))
-        {
-            switch (gameObject.tag)
+            if (holding && Input.GetButtonDown("Z"))
             {
-                case "Object":
-                    playerMovement.Grab(transform, rb); // Metodo do script PlayerMovement
-                    holding = true; // Objeto passa a estar segurado, para poder soltar sem estar em foco
-                    break;
-                case "Lamp":
-                    lightBulb.GetComponent<FlickeringLight>().lightSwitch(); // Chama metodo de ligar/desligar da luz em questao
-                    break;
+                player.Release(); // Metodo do script Player
+                holding = false; // Objeto nao esta mais sento seguardo
+            }
 
+            if (focus && Input.GetButtonDown("Z"))
+            {
+                switch (gameObject.tag)
+                {
+                    case "Object":
+                        player.Grab(rb); // Metodo do script Player
+                        holding = true; // Objeto passa a estar segurado, para poder soltar sem estar em foco
+                        break;
+                    case "Lamp":
+                        lightBulb.GetComponent<FlickeringLight>().lightSwitch(); // Chama metodo de ligar/desligar da luz em questao
+                        break;
+                }
             }
         }
 
