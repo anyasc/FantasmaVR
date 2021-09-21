@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform hold, examine;
     [SerializeField] private GameObject pointer;
     [SerializeField] private Avisos aviso;
+    [SerializeField] private GhostAnimations ghost;
+    [SerializeField] private GameObject rain;
 
 
     public GameObject firstMenuItem;
@@ -55,13 +57,15 @@ public class Player : MonoBehaviour
         }
 
     }
-    private void FixedUpdate()
-    {
-        if (carrying)
-        {
-            Rotate();
-        }
-    }
+
+    //private void FixedUpdate()
+    //{
+    //    if (carrying)
+    //    {
+    //        Rotate();
+    //    }
+    //}
+
     private void OpenMenu()
     {
         // uiInventory.gameObject.SetActive(!uiInventory.gameObject.activeSelf); // Alterna entre estados do menu
@@ -79,7 +83,14 @@ public class Player : MonoBehaviour
     private void Walk()
     {
         Vector3 velocity = (cam.right * CheckInput().x + cam.forward * CheckInput().y) * speed;
-        velocity.y = 0;
+        if (controller.isGrounded)
+        {
+            velocity.y = 0;
+        }
+        else
+        {
+            velocity.y = -5;
+        }
         controller.Move(velocity * Time.deltaTime);
     }
 
@@ -154,15 +165,15 @@ public class Player : MonoBehaviour
             {
                 if (door.GetComponent<Open>().locked)
                 {
-                    OpenMenu();
                     door.GetComponent<Open>().Unlock();
                     Message("Abriu!");
                     inventory.RemoveItem(item);
+                    StartCoroutine(DelayCloseMenu());
                 }
                 else
                 {
                     Message("Essa porta já está destrancada");
-                    OpenMenu();
+                    StartCoroutine(DelayCloseMenu());
                 }
 
             }
@@ -176,7 +187,7 @@ public class Player : MonoBehaviour
         {
             basement.Open();
             Message("Consegui! Abriu!");
-            OpenMenu();
+            StartCoroutine(DelayCloseMenu());
 
             inventory.RemoveItem(item);
         }
@@ -220,7 +231,7 @@ public class Player : MonoBehaviour
         if (candles.focus)
         {
             candles.LightCandles();
-            OpenMenu();
+            StartCoroutine(DelayCloseMenu());
 
             inventory.RemoveItem(item);
         }
@@ -235,5 +246,22 @@ public class Player : MonoBehaviour
     public void Message(string s, int time = 2)
     {
         aviso.ShowText(s, time);
+    }
+
+    IEnumerator DelayCloseMenu()
+    {
+        yield return new WaitForSeconds(0.2f);
+        OpenMenu();
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "EnterTrigger")
+        {
+            rain.SetActive(false);
+            ghost.PlayOpeningScene();
+            Destroy(other);
+        }
     }
 }

@@ -34,9 +34,9 @@ public class ObjectsInteractions : MonoBehaviour
                         player.Grab(rb); // Metodo do script Player
                         holding = true; // Objeto passa a estar segurado, para poder soltar sem estar em foco
                         break;
-                    case "Lamp":
-                        lightBulb.GetComponent<FlickeringLight>().lightSwitch(); // Chama metodo de ligar/desligar da luz em questao
-                        break;
+                    //case "Lamp":
+                    //    lightBulb.GetComponent<FlickeringLight>().lightSwitch(); // Chama metodo de ligar/desligar da luz em questao
+                    //    break;
                 }
             }
         }

@@ -6,7 +6,6 @@ public class FlickeringLight : MonoBehaviour
 {
 
     bool isOn;
-    public bool flicker = false;
     float delay;
 
     private void Start()
@@ -15,34 +14,28 @@ public class FlickeringLight : MonoBehaviour
     }
     void Update()
     {
-        if (isOn && flicker)
-        {
-            StartCoroutine(Flicker());
-        }
-    }
-
-    public void lightSwitch()
-    {
         if (isOn)
         {
-            gameObject.GetComponent<Light>().enabled = false;
-            isOn = false;
-        }
-        else
-        {
-            gameObject.GetComponent<Light>().enabled = true;
-            isOn = true;
+            StartCoroutine(Flicker());
         }
     }
 
     IEnumerator Flicker()
     {
         isOn = false;
-        gameObject.GetComponent<Light>().enabled = false;
-        delay = Random.Range(0.01f, 0.2f);
-        yield return new WaitForSeconds(delay);
-        gameObject.GetComponent<Light>().enabled = true;
-        delay = Random.Range(0.3f, 1f);
+        int times = Random.Range(2, 5);
+
+        for (int i = 0; i < times; i++)
+        {
+            gameObject.GetComponent<Light>().enabled = false;
+            delay = Random.Range(0.05f, 0.2f);
+            yield return new WaitForSeconds(delay);
+            gameObject.GetComponent<Light>().enabled = true;
+            delay = Random.Range(0.1f, 0.3f);
+            yield return new WaitForSeconds(delay);
+        }
+
+        delay = Random.Range(5f, 10f);
         yield return new WaitForSeconds(delay);
         isOn = true;
     }

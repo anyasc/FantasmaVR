@@ -10,38 +10,43 @@ public class Open : MonoBehaviour
     public bool locked = false;
     public Animator animator;
     public GameObject impedingDoor;
+    public UI_Inventory uiInventory;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        uiInventory = GameObject.Find("UI Inventory").GetComponent<UI_Inventory>();
     }
     private void Update()
     {
         if (focus && Input.GetButtonDown("Z"))
         {
-
-            if (!locked) // Se porta destrancada
+            if (!uiInventory.active)
             {
-                if (impedingDoor == null) // Se não tiver nenhuma porta que possa impedir esta de abrir
+                if (!locked) // Se porta destrancada
                 {
-                    OpenClose();
-                }
-                else // Fechar a porta impedindo antes de abrir esta
-                {
-                    if (impedingDoor.GetComponent<Open>().opened)
-                    {
-                        impedingDoor.GetComponent<Open>().OpenClose();
-                    }
-                    else
+                    if (impedingDoor == null) // Se não tiver nenhuma porta que possa impedir esta de abrir
                     {
                         OpenClose();
                     }
+                    else // Fechar a porta impedindo antes de abrir esta
+                    {
+                        if (impedingDoor.GetComponent<Open>().opened)
+                        {
+                            impedingDoor.GetComponent<Open>().OpenClose();
+                        }
+                        else
+                        {
+                            OpenClose();
+                        }
 
+                    }
                 }
-            }
-            else
-            {
-                FindObjectOfType<AudioManager>().Play("PortaTrancada");
+                else
+                {
+                    FindObjectOfType<AudioManager>().Play("PortaTrancada");
+                    Debug.Log("porta trancada");
+                }
             }
         }
     }
@@ -60,7 +65,9 @@ public class Open : MonoBehaviour
     {
         if (locked)
         {
-            StartCoroutine(DelayUnlock());
+            //StartCoroutine(DelayUnlock());
+            locked = false;
+
         }
         return false;
     }
