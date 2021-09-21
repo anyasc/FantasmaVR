@@ -6,6 +6,7 @@ public class ObjectsInteractions : MonoBehaviour
 {
     bool holding = false;
     public bool focus = false;
+    public bool insideDrawer;
     Rigidbody rb;
     public Player player;
     public GameObject lightBulb;
@@ -28,16 +29,12 @@ public class ObjectsInteractions : MonoBehaviour
 
             if (focus && Input.GetButtonDown("Z"))
             {
-                switch (gameObject.tag)
+                player.Grab(rb); // Metodo do script Player
+                if (insideDrawer)
                 {
-                    case "Object":
-                        player.Grab(rb); // Metodo do script Player
-                        holding = true; // Objeto passa a estar segurado, para poder soltar sem estar em foco
-                        break;
-                    //case "Lamp":
-                    //    lightBulb.GetComponent<FlickeringLight>().lightSwitch(); // Chama metodo de ligar/desligar da luz em questao
-                    //    break;
+                    transform.parent.GetComponent<Open>().enabled = true;
                 }
+                holding = true; // Objeto passa a estar segurado, para poder soltar sem estar em foco
             }
         }
 
@@ -46,10 +43,19 @@ public class ObjectsInteractions : MonoBehaviour
     public void PointerEnter() // Permitir acoes com pointer no objeto
     {
         focus = true;
+        if (insideDrawer)
+        {
+            transform.parent.GetComponent<Open>().enabled = false;
+        }
     }
 
     public void PointerExit() // Não permitir acoes com pointer fora do objeto
     {
         focus = false;
+        if (insideDrawer)
+        {
+            transform.parent.GetComponent<Open>().enabled = true;
+        }
+
     }
 }

@@ -8,6 +8,7 @@ public class Collect : MonoBehaviour
     public Item item;
     private bool focus = false;
     private Player player;
+    public bool insideDrawer;
 
 
     private void Start()
@@ -20,16 +21,29 @@ public class Collect : MonoBehaviour
         if (focus && Input.GetButtonDown("Z"))
         {
             player.CollectItem(item);
+            if (insideDrawer)
+            {
+                transform.parent.GetComponent<Open>().enabled = true;
+            }
             Destroy(gameObject);
         }
     }
     public void PointerEnter() // Permitir acoes com pointer no objeto
     {
         focus = true;
+        if (insideDrawer)
+        {
+            transform.parent.GetComponent<Open>().enabled = false;
+        }
     }
 
     public void PointerExit() // Não permitir acoes com pointer fora do objeto
     {
         focus = false;
+        if (insideDrawer)
+        {
+            transform.parent.GetComponent<Open>().enabled = true;
+        }
+
     }
 }
