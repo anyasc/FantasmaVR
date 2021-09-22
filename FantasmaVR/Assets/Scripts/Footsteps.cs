@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Footsteps : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> floorTypes;
     private int materialIndex = 0;
 
     private float deltaDistance;
     private Vector3 lastPosition;
 
-    public float stepDistance;
+    public float stepDistance = 1.6f;
     private float randomAdd;
 
 
@@ -37,14 +36,6 @@ public class Footsteps : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 6)
-        {
-            int floor = floorTypes.IndexOf(other.gameObject);
-            materialIndex = floor >= 0 ? floor : 0;
-        }
-    }
 
 
     void PlayFootstep()

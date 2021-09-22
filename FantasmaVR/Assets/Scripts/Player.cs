@@ -259,7 +259,6 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.name == "EnterTrigger")
         {
-            rain.SetActive(false);
             ghost.PlayOpeningScene();
             lightning.GoInside();
             Destroy(other);
