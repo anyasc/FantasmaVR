@@ -30,12 +30,15 @@ public class Lightning : MonoBehaviour
     {
         isOn = false;
         int times = Random.Range(1, 4);
-        transform.rotation = Quaternion.Euler(Random.Range(30, 60), Random.Range(0, 360), 0);
+        transform.rotation = Quaternion.Euler(Random.Range(30f, 60f), Random.Range(0f, 360f), 0);
         float intensity = Random.Range(0.5f, 2.5f);
         GetComponent<Light>().intensity = intensity;
         float volume = intensity / intensity * Random.Range(0.8f, 1f);
         Thunder.setParameterByName("Pitch", Random.Range(0f, 1f));
         Thunder.setParameterByName("Volume", volume);
+
+        delay = Random.Range(30f, 70f);
+        yield return new WaitForSeconds(delay);
 
         for (int i = 0; i < times; i++)
         {
@@ -52,8 +55,7 @@ public class Lightning : MonoBehaviour
         Thunder.start();
 
 
-        delay = Random.Range(30f, 70f);
-        yield return new WaitForSeconds(delay);
+
         isOn = true;
     }
 
