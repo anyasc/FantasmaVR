@@ -14,7 +14,6 @@ public class RainSoundControl : MonoBehaviour
     {
         Rain = FMODUnity.RuntimeManager.CreateInstance("event:/Rain");
         Rain.start();
-        Debug.Log(Rain);
     }
 
     public void EnterHouse()
@@ -41,5 +40,11 @@ public class RainSoundControl : MonoBehaviour
             Leave();
             testExit = false;
         }
+    }
+
+    public void GoInside(float x)
+    {
+        Rain.setParameterByName("Place", x);
+
     }
 }

@@ -9,24 +9,18 @@ public class GhostAnimations : MonoBehaviour
     [SerializeField] private List<Transform> positions;
     [SerializeField] private Animator frontDoor;
     private Player player;
-    private GameObject inventory;
 
-    // public bool test = false;
+
+
+    [SerializeField] private RainSoundControl rain;
+    private GhostLines ghostLines;
+
 
     void Start()
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
-
-
-    private void Update()
-    {
-        //if (test)
-        //{
-        //    test = false;
-        //    StartCoroutine(OpeningScene());
-        //}
+        ghostLines = GetComponent<GhostLines>();
     }
 
 
@@ -48,6 +42,9 @@ public class GhostAnimations : MonoBehaviour
         Transform finalPosition = positions[0];
         float moveTime = 1.5f;
 
+        rain.GoInside(0.2f);
+        ghostLines.PlayVoceNaoEhSusana();
+
         Vector3 deltaPos = (finalPosition.position - transform.position) / moveTime;
         float timePassed = 0;
         while (timePassed < moveTime)
@@ -57,11 +54,11 @@ public class GhostAnimations : MonoBehaviour
             yield return null;
         }
         transform.position = finalPosition.position;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
 
 
         ReleaseWateringCan();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3f);
 
         animator.SetTrigger("JumpForward");
         yield return new WaitForSeconds(0.25f);
@@ -71,6 +68,7 @@ public class GhostAnimations : MonoBehaviour
         moveTime = 1.5f;
 
         frontDoor.SetBool("Open", false);
+        rain.GoInside(1f);
         deltaPos = (finalPosition.position - transform.position) / moveTime;
         timePassed = 0;
         while (timePassed < moveTime)
