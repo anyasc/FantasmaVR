@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{6fef8764-9926-4f28-8e81-e2b183e282a9}">
+		<property name="assetPath">
+			<value>Painel-de-senha 1.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.1200000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ab445914-6037-4c3a-9fee-cc9dd1f39fa8}</destination>
+		</relationship>
+	</object>
+</objects>
