@@ -9382,6 +9382,7 @@ MonoBehaviour:
   UnloadEvent: 2
   Banks:
   - Master
+  - Master.strings
   CollisionTag: 
   PreloadSamples: 0
 --- !u!4 &397808378
@@ -40961,7 +40962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e700f082da65a354d89f42f2633600a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepDistance: 0
+  stepDistance: 1.6
 --- !u!33 &372933008015952579
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -43595,7 +43596,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1370948687387260973, guid: 0a484b9654f01fb4ca46557d90ac2225, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0a484b9654f01fb4ca46557d90ac2225, type: 3}
 --- !u!23 &1595328448258487807
 MeshRenderer:
