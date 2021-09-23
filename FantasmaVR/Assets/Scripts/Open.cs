@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Open : MonoBehaviour
 {
+    FMOD.Studio.EventInstance OpenCloseSound, LockedSound, UnlockSound;
+
 
     public bool focus = false;
     public bool opened = false;
@@ -11,11 +13,20 @@ public class Open : MonoBehaviour
     public Animator animator;
     public GameObject impedingDoor;
     public UI_Inventory uiInventory;
+    private string soundEvent;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         uiInventory = GameObject.Find("UI Inventory").GetComponent<UI_Inventory>();
+        LockedSound = FMODUnity.RuntimeManager.CreateInstance("event:/LockedDoor");
+        UnlockSound = FMODUnity.RuntimeManager.CreateInstance("event:/UnlockDoor");
+        soundEvent =
+            gameObject.CompareTag("Door") ? "event:/OpenCloseDoor" :
+            gameObject.CompareTag("Drawer") ? "event:/OpenCloseDrawer" :
+            null;
+        if (soundEvent != null)
+            OpenCloseSound = FMODUnity.RuntimeManager.CreateInstance(soundEvent);
     }
     private void Update()
     {
@@ -44,8 +55,7 @@ public class Open : MonoBehaviour
                 }
                 else
                 {
-                    FindObjectOfType<AudioManager>().Play("PortaTrancada");
-                    Debug.Log("porta trancada");
+                    LockedSound.start();
                 }
             }
         }
@@ -53,10 +63,10 @@ public class Open : MonoBehaviour
     public void OpenClose()
     {
         animator.SetTrigger("OpenClose");
-        if (!opened)
+        if (soundEvent != null)
         {
-            FindObjectOfType<AudioManager>().Play("PortaAbrindo");
-
+            OpenCloseSound.setParameterByName("Estado", opened ? 1 : 0);
+            OpenCloseSound.start();
         }
         opened = !opened;
     }
@@ -65,7 +75,7 @@ public class Open : MonoBehaviour
     {
         if (locked)
         {
-            //StartCoroutine(DelayUnlock());
+            UnlockSound.start();
             locked = false;
 
         }
@@ -85,9 +95,4 @@ public class Open : MonoBehaviour
     }
 
 
-    IEnumerator DelayUnlock()
-    {
-        yield return new WaitForSeconds(0.2f);
-        locked = false;
-    }
 }

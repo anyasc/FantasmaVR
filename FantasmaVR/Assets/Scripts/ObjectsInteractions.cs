@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectsInteractions : MonoBehaviour
 {
+    FMOD.Studio.EventInstance colSound;
     bool holding = false;
     public bool focus = false;
     public bool insideDrawer;
@@ -13,8 +14,10 @@ public class ObjectsInteractions : MonoBehaviour
 
     void Start()
     {
+        colSound = FMODUnity.RuntimeManager.CreateInstance("event:/Col");
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(colSound, transform, GetComponent<Rigidbody>());
     }
 
     void Update()
@@ -57,5 +60,13 @@ public class ObjectsInteractions : MonoBehaviour
             transform.parent.GetComponent<Open>().enabled = true;
         }
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        float vel = collision.relativeVelocity.magnitude;
+        colSound.setParameterByName("ColVolume", vel > 10 ? 1 : vel / 100);
+        colSound.setParameterByName("ColPitch", Random.Range(0f, 1f));
+        colSound.start();
     }
 }

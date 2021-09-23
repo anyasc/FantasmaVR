@@ -9,6 +9,7 @@ TagManager:
   - Lamp
   - Pointer
   - Door
+  - Drawer
   layers:
   - Default
   - TransparentFX
