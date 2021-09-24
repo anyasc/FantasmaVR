@@ -5,6 +5,9 @@ using UnityEngine;
 public class LightSwitch : MonoBehaviour
 {
     public List<GameObject> lights;
+    FMOD.Studio.EventInstance switchSound;
+
+
 
     private bool focus;
 
@@ -13,7 +16,7 @@ public class LightSwitch : MonoBehaviour
 
     private void Start()
     {
-
+        switchSound = FMODUnity.RuntimeManager.CreateInstance("event:/LightSwitch");
             foreach (GameObject l in lights)
             {
             lightOn = l.activeSelf;
@@ -28,7 +31,9 @@ public class LightSwitch : MonoBehaviour
             {
                 l.SetActive(lightOn);
             }
-            FindObjectOfType<AudioManager>().Play("LightSwitch");
+            int p = lightOn ? 0 : 1;
+            switchSound.setParameterByName("OnOff", p);
+            switchSound.start();
         }
 
 

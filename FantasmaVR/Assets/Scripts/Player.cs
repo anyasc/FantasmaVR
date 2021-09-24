@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Avisos aviso;
     [SerializeField] private GhostAnimations ghost;
     [SerializeField] private GameObject rain;
-
+    [SerializeField] private Lightning lightning;
 
     public GameObject firstMenuItem;
 
@@ -259,8 +259,8 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.name == "EnterTrigger")
         {
-            rain.SetActive(false);
             ghost.PlayOpeningScene();
+            lightning.GoInside();
             Destroy(other);
         }
     }
