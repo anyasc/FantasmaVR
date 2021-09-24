@@ -42,7 +42,7 @@ public class GhostAnimations : MonoBehaviour
         Transform finalPosition = positions[0];
         float moveTime = 1.5f;
 
-        rain.GoInside(0.2f);
+        rain.GoInside(0.4f);
         ghostLines.PlayVoceNaoEhSusana();
 
         Vector3 deltaPos = (finalPosition.position - transform.position) / moveTime;
