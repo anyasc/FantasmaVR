@@ -59,7 +59,7 @@ MonoBehaviour:
   Path: Assets/FMODAssets/Mobile/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637680869025083029
+  lastModified: 637680871104881634
   FileSizes:
   - Name: 
     Value: 1618
@@ -196,6 +196,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-8616155237445078869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LightSwitch/OnOff
+  m_EditorClassIdentifier: 
+  Name: OnOff
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-8612866612524332841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,7 +987,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -611716719318500865}
+  - {fileID: -8616155237445078869}
   MinDistance: 0
   MaxDistance: 0
   Length: 287
@@ -1077,9 +1099,9 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -7960711531431013149}
-  - {fileID: 5390113856253779461}
-  - {fileID: -2097404980256776463}
+  - {fileID: 4238279362102718890}
+  - {fileID: -3481980993156266383}
+  - {fileID: -4986788279677918846}
   MinDistance: 0
   MaxDistance: 0
   Length: 15400
@@ -1543,6 +1565,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-5228362692200970717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Col/ColVolume
+  m_EditorClassIdentifier: 
+  Name: ColVolume
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-5181270935490472758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1585,7 +1629,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -1641225937315308050}
+  - {fileID: -1362933559673362148}
   MinDistance: 0
   MaxDistance: 0
   Length: 959
@@ -1699,6 +1743,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-4986788279677918846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Lightning/Inside
+  m_EditorClassIdentifier: 
+  Name: Inside
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-4928774701060849870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,6 +1897,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-4513136161329701780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Rain/Place
+  m_EditorClassIdentifier: 
+  Name: Place
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-4495257039419104229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2008,6 +2096,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-3938607798601489361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Col/ColPitch
+  m_EditorClassIdentifier: 
+  Name: ColPitch
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-3935709435087840503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2118,6 +2228,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-3481980993156266383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Lightning/Pitch
+  m_EditorClassIdentifier: 
+  Name: Pitch
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-3471565867297974581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2485,7 +2617,7 @@ MonoBehaviour:
   Path: Assets/FMODAssets/Mobile/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637680869025066404
+  lastModified: 637680871104861708
   FileSizes: []
   Exists: 1
 --- !u!114 &-2376468184697435765
@@ -3016,6 +3148,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Exists: 1
+--- !u!114 &-1362933559673362148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/OpenCloseDrawer/Estado
+  m_EditorClassIdentifier: 
+  Name: Estado
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-1326850402684184229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3080,7 +3234,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 8995890570245541742}
+  - {fileID: 5554775758782819232}
   MinDistance: 0
   MaxDistance: 0
   Length: 1440
@@ -3370,6 +3524,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-333921248331074294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footstep/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  Min: 0
+  Max: 4
+  Default: 2
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-124146258706479871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3390,8 +3566,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -5638008688548944094}
-  - {fileID: -1416080800109173700}
+  - {fileID: -5228362692200970717}
+  - {fileID: -3938607798601489361}
   MinDistance: 1
   MaxDistance: 20
   Length: 1200
@@ -3537,7 +3713,7 @@ MonoBehaviour:
   - {fileID: -2584912055529574087}
   StringsBanks:
   - {fileID: -9022113754593354838}
-  stringsBankWriteTime: 637680869025083029
+  stringsBankWriteTime: 637680871104881634
   cacheVersion: 8
 --- !u!114 &12593359110009448
 MonoBehaviour:
@@ -3823,7 +3999,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -88795382785864234}
+  - {fileID: -4513136161329701780}
   MinDistance: 0
   MaxDistance: 0
   Length: 20000
@@ -4179,6 +4355,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &1929606028531612916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footstep/Speed Switch
+  m_EditorClassIdentifier: 
+  Name: Speed Switch
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &1958792910014949134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4882,8 +5080,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 7482133923738339565}
-  - {fileID: -6303078422568327276}
+  - {fileID: 1929606028531612916}
+  - {fileID: -333921248331074294}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -5017,6 +5215,28 @@ MonoBehaviour:
   - Name: Desktop
     Value: 748
   Exists: 0
+--- !u!114 &4238279362102718890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Lightning/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &4490610529547155355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5391,6 +5611,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &5554775758782819232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/OpenCloseDoor/Estado
+  m_EditorClassIdentifier: 
+  Name: Estado
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &5559707106417654070
 MonoBehaviour:
   m_ObjectHideFlags: 0
