@@ -11,7 +11,6 @@ public class GhostAnimations : MonoBehaviour
     private Player player;
 
 
-
     [SerializeField] private RainSoundControl rain;
     private GhostLines ghostLines;
 

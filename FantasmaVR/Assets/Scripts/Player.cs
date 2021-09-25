@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GhostAnimations ghost;
     [SerializeField] private GameObject rain;
     [SerializeField] private Lightning lightning;
+    [SerializeField] private GameObject mist;
+
 
     public GameObject firstMenuItem;
 
@@ -262,6 +264,7 @@ public class Player : MonoBehaviour
             ghost.PlayOpeningScene();
             lightning.GoInside();
             Destroy(other);
+            mist.SetActive(false);
         }
     }
 }
