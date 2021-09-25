@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 8637309219275755036}
   - component: {fileID: 4040864146760579342}
   - component: {fileID: -7882172923917775976}
+  - component: {fileID: 9040275687617504515}
+  - component: {fileID: 7185426815248425902}
+  - component: {fileID: 234380752620302299}
   m_Layer: 0
   m_Name: Jar_Pills_3_1
   m_TagString: Untagged
@@ -56,10 +59,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9b889216858b49a4a855156ce6cd1de4, type: 2}
+  - {fileID: 2100000, guid: 158e7b31a4671c04890a27c0e72c4ba8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &-7882172923917775976
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94,3 +99,48 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8803400953487733950, guid: 03c46dbce9e47f040a0dc35f51084f07, type: 3}
+--- !u!54 &9040275687617504515
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062554359667164641}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7185426815248425902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062554359667164641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac222a1221059fa4fb1f43955d65852b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focus: 0
+  insideDrawer: 0
+  player: {fileID: 0}
+  lightBulb: {fileID: 0}
+--- !u!114 &234380752620302299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062554359667164641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
