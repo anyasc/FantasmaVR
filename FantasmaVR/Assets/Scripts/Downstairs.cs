@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Downstairs : MonoBehaviour
 {
+    FMOD.Studio.EventInstance Crowbar;
     public Transform door, basementPosition, upstairsPosition;
     public bool covered = true;
     public bool opened, focus;
     public bool inBasement = false;
 
+
     public Player player;
-    // Start is called before the first frame update
+
     void Start()
     {
-
+        Crowbar = FMODUnity.RuntimeManager.CreateInstance("event:/Crowbar");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (focus && !covered && Input.GetButtonDown("Z"))
@@ -30,12 +31,12 @@ public class Downstairs : MonoBehaviour
                 player.Message("Está emperrado... Não consigo abrir");
             }
         }
+
     }
 
     public void Open()
     {
-        door.GetComponent<Animator>().SetTrigger("Open");
-        opened = true;
+        StartCoroutine(OpenAnimationSound());
     }
 
 
@@ -61,5 +62,13 @@ public class Downstairs : MonoBehaviour
             // Voltar para térreo
         }
         inBasement = !inBasement;
+    }
+
+    IEnumerator OpenAnimationSound()
+    {
+        Crowbar.start();
+        yield return new WaitForSeconds(0.4f);
+        door.GetComponent<Animator>().SetTrigger("Open");
+        opened = true;
     }
 }

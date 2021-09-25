@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collect : MonoBehaviour
 {
-
+    FMOD.Studio.EventInstance CollectSound;
     public Item item;
     private bool focus = false;
     private Player player;
@@ -14,7 +14,7 @@ public class Collect : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
+        CollectSound = FMODUnity.RuntimeManager.CreateInstance("event:/GetItem");
     }
     private void Update()
     {
@@ -25,6 +25,7 @@ public class Collect : MonoBehaviour
             {
                 transform.parent.GetComponent<Open>().enabled = true;
             }
+            CollectSound.start();
             Destroy(gameObject);
         }
     }
