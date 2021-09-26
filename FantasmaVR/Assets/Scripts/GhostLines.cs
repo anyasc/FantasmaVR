@@ -5,22 +5,24 @@ using UnityEngine;
 public class GhostLines : MonoBehaviour
 {
 
-    FMOD.Studio.EventInstance VoceNaoEhSusana;
+    FMOD.Studio.EventInstance Fala;
+    [SerializeField] [FMODUnity.EventRef] private string source;
+    [SerializeField] private Transform soundEmitter;
 
     // Start is called before the first frame update
     void Start()
     {
-        VoceNaoEhSusana = FMODUnity.RuntimeManager.CreateInstance("event:/VoceNaoEhSusana");
+        if (soundEmitter == null)
+        {
+            soundEmitter = transform;
+        }
     }
 
-    private void Update()
-    {
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(VoceNaoEhSusana, transform);
-    }
 
-
-    public void PlayVoceNaoEhSusana()
+    public void Play()
     {
-        VoceNaoEhSusana.start();
+        Fala = FMODUnity.RuntimeManager.CreateInstance(source);
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(Fala, soundEmitter);
+        Fala.start();
     }
 }

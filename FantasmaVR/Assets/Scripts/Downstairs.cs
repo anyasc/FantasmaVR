@@ -26,7 +26,7 @@ public class Downstairs : MonoBehaviour
             {
                 Teleport();
             }
-            else
+            else if (!player.menuOpened)
             {
                 player.Message("Está emperrado... Não consigo abrir");
             }

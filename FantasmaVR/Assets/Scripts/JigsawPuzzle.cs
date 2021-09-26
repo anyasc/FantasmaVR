@@ -11,6 +11,7 @@ public class JigsawPuzzle : MonoBehaviour
     [SerializeField] private GameObject pointer;
     public UI_Inventory uiInventory;
     public SpriteRenderer leftPiece;
+    [SerializeField] private GhostAnimations ghost;
    
 
     private bool puzzleStarted = false;
@@ -138,7 +139,8 @@ public class JigsawPuzzle : MonoBehaviour
             piece.GetComponent<SpriteRenderer>().color = Color.white;
         }
         leftPiece.color = Color.white;
-        FindObjectOfType<AudioManager>().Play("QuebraCabecaCompleto");
+        ghost.gameObject.SetActive(true);
+        ghost.CallFinalScene();
 
         puzzleStarted = false;
         puzzleActive = false;

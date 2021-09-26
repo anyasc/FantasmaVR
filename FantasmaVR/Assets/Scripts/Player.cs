@@ -10,10 +10,11 @@ public class Player : MonoBehaviour
     private Inventory inventory;
     private Transform cam;
     private CharacterController controller;
-    [SerializeField] private Transform hold, examine;
-    [SerializeField] private GameObject pointer;
+    [SerializeField] private Transform hold;
+    public GameObject pointer;
     [SerializeField] private Avisos aviso;
     [SerializeField] private GhostAnimations ghost;
+    [SerializeField] private GameObject endGame;
     [SerializeField] private GameObject rain;
     [SerializeField] private Lightning lightning;
     [SerializeField] private GameObject mist;
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
 
     public bool ableMove = true;
     public bool menuOpened = false;
-    private bool carrying = false;
+    public bool carrying = false;
 
 
     private void Awake()
@@ -60,17 +61,8 @@ public class Player : MonoBehaviour
 
     }
 
-    //private void FixedUpdate()
-    //{
-    //    if (carrying)
-    //    {
-    //        Rotate();
-    //    }
-    //}
-
     private void OpenMenu()
     {
-        // uiInventory.gameObject.SetActive(!uiInventory.gameObject.activeSelf); // Alterna entre estados do menu
         menuOpened = !menuOpened;
         uiInventory.active = menuOpened;
         ableMove = !menuOpened; // Se menu esta aberto nao pode andar
@@ -132,24 +124,6 @@ public class Player : MonoBehaviour
         pointer.SetActive(true);
     }
 
-    private void Rotate()
-    {
-        if (Input.GetButtonDown("C"))
-        {
-            ableMove = false;
-            obj.transform.position = examine.position;
-        }
-        if (!ableMove & Input.GetButtonUp("C"))
-        {
-            ableMove = true;
-            obj.transform.SetPositionAndRotation(hold.position, cam.rotation);
-        }
-        if (Input.GetButton("C"))
-        {
-            Quaternion deltaRotation = Quaternion.Euler(CheckInput().y * rotateSpeed, -CheckInput().x * rotateSpeed, 0);
-            obj.MoveRotation(obj.rotation * deltaRotation);
-        }
-    }
 
     public void CollectItem(Item item)
     {
@@ -169,7 +143,7 @@ public class Player : MonoBehaviour
                 {
                     door.GetComponent<Open>().Unlock();
                     Message("Abriu!");
-                    inventory.RemoveItem(item);
+                    //inventory.RemoveItem(item);
                     StartCoroutine(DelayCloseMenu());
                 }
                 else
@@ -191,7 +165,7 @@ public class Player : MonoBehaviour
             Message("Consegui! Abriu!");
             StartCoroutine(DelayCloseMenu());
 
-            inventory.RemoveItem(item);
+            //inventory.RemoveItem(item);
         }
         else
         {
@@ -216,7 +190,7 @@ public class Player : MonoBehaviour
             else
             {
                 puzzle.BeginPuzzle();
-                inventory.RemoveItem(item);
+                //inventory.RemoveItem(item);
 
             }
         }
@@ -235,7 +209,7 @@ public class Player : MonoBehaviour
             candles.LightCandles();
             StartCoroutine(DelayCloseMenu());
 
-            inventory.RemoveItem(item);
+            //inventory.RemoveItem(item);
         }
 
         else
@@ -265,6 +239,8 @@ public class Player : MonoBehaviour
             lightning.GoInside();
             Destroy(other);
             mist.SetActive(false);
+            endGame.SetActive(true);
+            rain.SetActive(false);
         }
     }
 }

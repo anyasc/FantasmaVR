@@ -15,6 +15,8 @@ public class Open : MonoBehaviour
     public UI_Inventory uiInventory;
     private string soundEvent;
 
+    private bool firstTime = true;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -62,6 +64,11 @@ public class Open : MonoBehaviour
     }
     public void OpenClose()
     {
+        if (firstTime && GetComponent<GhostLines>() != null)
+        {
+            GetComponent<GhostLines>().Play();
+            firstTime = false;
+        }
         animator.SetTrigger("OpenClose");
         if (soundEvent != null)
         {
